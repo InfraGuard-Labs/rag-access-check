@@ -1,3 +1,6 @@
+import json
+
+
 def check_access(user, retrieved_docs, allowed_docs):
     unauthorized = [doc for doc in retrieved_docs if doc not in allowed_docs]
 
@@ -11,17 +14,26 @@ def check_access(user, retrieved_docs, allowed_docs):
     return True
 
 
-if __name__ == "__main__":
-    users = {
-        "User A": {
-            "allowed": ["finance-a.pdf", "finance-b.pdf"],
-            "retrieved": ["finance-a.pdf", "hr-a.pdf"],
-        },
-        "User B": {
-            "allowed": ["hr-a.pdf", "hr-b.pdf"],
-            "retrieved": ["hr-a.pdf", "hr-b.pdf"],
-        },
-    }
+def load_test_cases(path="test_cases.json"):
+    with open(path, "r", encoding="utf-8") as file:
+        return json.load(file)
 
-    for user, data in users.items():
-        check_access(user, data["retrieved"], data["allowed"])
+
+if __name__ == "__main__":
+    data = load_test_cases()
+
+    failures = 0
+
+    for user in data["users"]:
+        passed = check_access(
+            user["name"],
+            user["retrieved"],
+            user["allowed"],
+        )
+
+        if not passed:
+            failures += 1
+
+    print()
+    print(f"Completed {len(data['users'])} access-control tests.")
+    print(f"Failures: {failures}")
