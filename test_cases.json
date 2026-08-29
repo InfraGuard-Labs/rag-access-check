@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "name": "User A",
+      "allowed": [
+        "finance-a.pdf",
+        "finance-b.pdf"
+      ],
+      "retrieved": [
+        "finance-a.pdf",
+        "hr-a.pdf"
+      ]
+    },
+    {
+      "name": "User B",
+      "allowed": [
+        "hr-a.pdf",
+        "hr-b.pdf"
+      ],
+      "retrieved": [
+        "hr-a.pdf",
+        "hr-b.pdf"
+      ]
+    }
+  ]
+}
