@@ -1,0 +1,25 @@
+{
+  "endpoint": "https://example.com/api/search",
+  "method": "POST",
+  "auth": {
+    "type": "bearer",
+    "token_env": "RAG_TOKEN"
+  },
+  "request": {
+    "query_field": "query",
+    "query": "show me employee benefits"
+  },
+  "response": {
+    "results_field": "results",
+    "document_id_field": "document_id"
+  },
+  "users": [
+    {
+      "name": "User A",
+      "allowed": [
+        "finance-a.pdf",
+        "finance-b.pdf"
+      ]
+    }
+  ]
+}
