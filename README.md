@@ -36,15 +36,3 @@ Example result:
 PASS  User A cannot retrieve hr-a.pdf
 PASS  User A cannot retrieve hr-b.pdf
 FAIL  User B retrieved finance-a.pdf
-
-
-paste:
-
-```markdown
-## Quick Start
-
-Clone the repository:
-
-```bash
-git clone https://github.com/InfraGuard-Labs/rag-access-check.git
-cd rag-access-check
